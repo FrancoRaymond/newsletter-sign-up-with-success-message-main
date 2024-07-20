@@ -1,0 +1,249 @@
+@font-face{
+    font-family: 'Roboto';
+    font-display: swap;
+    font-weight: 400,700;
+    src: url(assets/fonts/Roboto-Regular.ttf) format('truetype'),
+         url(assets/fonts/Roboto-Bold.ttf) format('truetype');
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --tomato: hsl(4, 100%, 67%);
+    --dark-Slate-Grey: hsl(234, 29%, 20%);
+    --charcoal-Grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%);
+
+    --gradient: linear-gradient(to right, hsl(4, 100%, 67%), #ff693e)
+}
+body{
+    font-family: 'Roboto';
+    background-color: var(--charcoal-Grey);
+}
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.container{
+    width: 790px;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 30px;
+    animation: fadein 0.5s ease;
+}
+.container.hide{
+  display: none;
+}
+.leftContainer{
+    width: 450px;
+    padding: 30px 45px 30px 30px;
+    border-radius: 30px;
+}
+.leftContainer h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--dark-Slate-Grey);
+}
+.leftContainer p{
+    margin-top: 20px;
+    color: var(--dark-Slate-Grey);
+}
+.updatesDiv{
+    margin-top: 25px;
+}
+.update{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.update p{
+    margin-top: -2px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    margin-top: 30px;
+}
+.labelDiv{
+    display: flex;
+    justify-content: space-between;
+}
+form .labelName{
+    color: var(--dark-Slate-Grey);
+    font-size: 11px;
+    font-weight: 900;
+}
+form .errorText{
+    color: rgb(197, 5, 5);
+    font-size: 11px;
+    font-weight: 900;
+    display: none;
+}
+#emailField{
+    width: 100%;
+    margin-top: -13px;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--grey);
+    outline: none;
+}
+#emailField.active{
+    color: rgb(197, 5, 5);
+    background: rgb(197, 5, 5, 0.1);
+    border:1px solid rgb(197, 5, 5);
+}
+.button{
+    margin-top: 15px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 10px;
+    width: 100%;
+    background-color: var(--dark-Slate-Grey);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+}
+.button:hover{
+    background: var(--gradient);
+}
+.rightContainer{
+    border-radius: 20px;
+    width: 300px;
+    height: 460px;
+    background: url(assets/images/illustration-sign-up-desktop.svg)no-repeat center center / cover;
+}
+.thankYouMessage{
+    width: 340px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 25px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.thankYouMessage.active{
+  display: block;
+  animation: fadein 3s ease
+}
+@keyframes fadein {
+    0%{opacity: 0}
+    100%{opacity: 1}
+}
+.thankYouMessage img{
+    width: 40px;
+    height: 40px;
+}
+.thankYouMessage h1{
+    color: var(--dark-Slate-Grey);
+    margin-top: 25px;
+    font-size: 35px;
+}
+.thankYouMessage p{
+    font-size: 15px;
+    margin-top: 15px;
+    color: var(--dark-Slate-Grey);
+    line-height: 1.3;
+}
+.thankYouMessage span{
+    font-weight: bold;
+}
+.dismissMessage{
+    margin-top: 25px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 10px;
+    width: 100%;
+    background-color: var(--dark-Slate-Grey);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+}
+.dismissMessage:hover{
+    background: var(--gradient);
+}
+@media (max-width: 790px) {
+    .container{
+        width: 100%;
+    }
+    .leftContainer{
+        width: 56%;
+    }
+    .rightContainer{
+        width: 44%;
+    }
+    .leftContainer h1{
+        font-size: 40px;
+    }
+}
+@media (max-width: 605px) {
+    .container{
+        width: 100%;
+        margin-top: 0;
+        flex-direction: column-reverse;
+        border-radius: unset;
+        padding: unset;
+    }
+    .leftContainer{
+        width: 100%;
+    }
+    .rightContainer{
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        height: 350px;
+        background: url(assets/images/illustration-sign-up-mobile.svg)no-repeat center center / cover;
+    }
+    .leftContainer h1{
+        font-size: 40px;
+    }
+    .attribution{
+      background-color: var(--dark-Slate-Grey);
+      text-align: center;
+      padding: 15px;
+      width: 100%;
+    }
+}
+@media (max-width: 375px) {
+    .container{
+        border-radius: unset;
+    }
+    .rightContainer{
+        height: 300px;
+        border-radius: 0 0 20px 20px;
+    }
+    .leftContainer{
+        padding: 20px 15px ;
+        border-radius: unset;
+    }
+    .thankYouMessage{
+        width: 100%;
+        height: 100%;
+        border-radius: unset;
+        padding: 10px;
+    }
+    .thankYouMessage img{
+        margin-top: 20%;
+    }
+    .dismissMessage{
+        margin-top: 140px;
+    }
+}
